@@ -1,0 +1,9 @@
+.addButton {
+  border: solid 1px black;
+}
+input {
+  border: solid 1px black;
+}
+.deleteButton {
+  color: white;
+}
