@@ -1,9 +1,136 @@
-.addButton {
-  border: solid 1px black;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #3F72AF;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
+
+
+.todoContainer {
+  background-color: white;
+  border-radius: 8px;
+  width: 400px;
+  padding: 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.inputContainer {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+}
+
 input {
-  border: solid 1px black;
+  width: 75%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
 }
-.deleteButton {
+
+.addButton {
+  padding: 10px 15px;
+  border: 1px solid #3F72AF;
+  background-color: #3F72AF;
   color: white;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.addButton:hover {
+  background-color: #305a8d;
+}
+
+.taskList {
+list-style-type: disc;
+  padding: 0;
+  margin: 0;
+  color: black;
+}
+
+.taskItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+  border: solid 1px black;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 4px;
+}
+
+.taskText {
+  font-size: 1.1rem;
+  flex: 1;
+}
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; 
+}
+
+/* Modal Content */
+.modalContent {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.modalInput{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+color: black;
+}
+
+.modalButtonContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalButton {
+  padding: 8px 12px;
+  border: 1px solid #3F72AF;
+  background-color: #3F72AF;
+  color: white;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modalButton:hover {
+  background-color: #305a8d;
 }
