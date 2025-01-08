@@ -7,6 +7,8 @@ export default function TodoList() {
   const [newTask, setNewTask] = useState(""); 
   const [isModalOpen, setIsModalOpen] = useState(false); 
   const [editedTask, setEditedTask] = useState("");
+  const [editedTaskIndex, setEditedTaskIndex] = useState(null); 
+
   function handleInputChange(event) {
     setNewTask(event.target.value);
   }
@@ -17,25 +19,28 @@ export default function TodoList() {
       setNewTask(""); 
     }
   }
+
   function deleteTask(index) {
     const updatedTasks = [...tasks]; 
     updatedTasks.splice(index, 1); 
     setTasks(updatedTasks);
   }
 
-  function openModal(task) {
+  function openModal(index, task) {
     setEditedTask(task);
+    setEditedTaskIndex(index);  
     setIsModalOpen(true); 
   }
+
   function closeModal() {
     setIsModalOpen(false);
   }
+
   function saveTask() {
     if (editedTask !== "") {
-      const updatedTasks = tasks.map((task) => 
-        task === editedTask ? editedTask : task
-      );
-      setTasks(updatedTasks); 
+      const updatedTasks = [...tasks];
+      updatedTasks[editedTaskIndex] = editedTask;  
+      setTasks(updatedTasks);
       setIsModalOpen(false); 
     }
   }
@@ -58,7 +63,7 @@ export default function TodoList() {
         {tasks.map((task, index) => (
           <li key={index} className="taskItem">
             <span className="taskText">{task}</span>
-            <button className="editButton" onClick={() => openModal(task)}>
+            <button className="editButton" onClick={() => openModal(index, task)}>
               ✏️
             </button>
             <button className="deleteButton" onClick={() => deleteTask(index)}>
@@ -75,7 +80,7 @@ export default function TodoList() {
               type="text"
               className="modalInput"
               value={editedTask}
-              onClick={(event) => setEditedTask(event.target.value)}
+              onChange={(event) => setEditedTask(event.target.value)} 
             />
             <div className="modalButtonContainer">
               <button className="modalButton" onClick={saveTask}>
